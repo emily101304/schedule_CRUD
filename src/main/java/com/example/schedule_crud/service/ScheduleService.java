@@ -55,9 +55,9 @@ public class ScheduleService {
 
     @Transactional
     public void deleteById(Long id) {
-        Schedule schedule = scheduleRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("해당 id에 맞는 스케줄이 존재하지 않습니다.")
-        );
+        if (!scheduleRepository.existsById(id)) {
+            throw new IllegalArgumentException("해당 스케줄은 존재하지 않습니다.")
+        }
         scheduleRepository.deleteById(id);
     }
 }
