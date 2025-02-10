@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class ScheduleController {
@@ -30,7 +32,7 @@ public class ScheduleController {
 
     @PutMapping("/schedules/{id}")
     public ResponseEntity<ScheduleResponseDto> update(@PathVariable Long id, @RequestBody ScheduleRequestDto dto) {
-        return ResponseEntity.ok(scheduleService.update(id, dto));
+        return ResponseEntity.ok(scheduleService.update(id,dto));
     }
 
     @DeleteMapping("/schedules/{id}")

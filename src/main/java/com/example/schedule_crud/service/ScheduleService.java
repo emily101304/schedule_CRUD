@@ -44,7 +44,7 @@ public class ScheduleService {
     }
 
     @Transactional
-    public ScheduleResponseDto update(Long id, ScheduleResponseDto dto) {
+    public ScheduleResponseDto update(Long id, ScheduleRequestDto dto) {
         Schedule schedule = scheduleRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 id에 맞는 스케줄이 존재하지 않습니다.")
         );
